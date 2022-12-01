@@ -13,8 +13,7 @@ elves = content.split(separator: "\n\n")
                                        .reduce(0) { $0 + $1 } // Sum values
                     return sum
                })
-
-elves = elves.sorted { $0 > $1 } // Sort desc.
+               .sorted { $0 > $1 } // Sort desc.
 
 // Most calories
 print(elves.first)
