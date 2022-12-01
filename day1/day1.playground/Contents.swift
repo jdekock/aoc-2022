@@ -1,4 +1,3 @@
-import UIKit
 import Foundation
 
 let fileURL = Bundle.main.url(forResource: "input", withExtension: "txt")
