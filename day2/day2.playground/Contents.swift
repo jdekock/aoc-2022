@@ -50,7 +50,6 @@ let _ = content.split(separator: "\n") // Split into lines for each play
                    scoreStrategyTwo += strategyScore ?? 0
                })
 
-// Score strategy 1
 print(scoreStrategyOne)
 print(scoreStrategyTwo)
 
