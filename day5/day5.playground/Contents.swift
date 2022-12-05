@@ -36,7 +36,6 @@ content.split(separator: "\n")
        }
 
 // secondly, parse the move lines
-let digits = "0123456789"
 var usesModel9001 = true
 
 content.split(separator: "\n")
