@@ -36,7 +36,7 @@ content.split(separator: "\n")
        }
 
 // secondly, parse the move lines
-var usesModel9001 = true
+var usesModel9001 = false
 
 content.split(separator: "\n")
        .compactMap { line in
