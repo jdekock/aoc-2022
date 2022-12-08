@@ -17,17 +17,17 @@ fileSystem.add(directory: rootDirectory,
                parent: nil)
 
 output.forEach { line in
-    switch line.prefix(4).replacingOccurrences(of: " ", with: "") {
-    case "$cd":
+    switch line.prefix(4) {
+    case "$ cd":
         if line.contains("..") {
             currentDirectory = fileSystem.directories[currentDirectory]?.parent ?? "/" // move up to parent
         } else {
             let folder = line.dropFirst(5)
             currentDirectory = String("\(currentDirectory)/\(folder)").replacingOccurrences(of: "//", with: "/") // move to new folder
         }
-    case "$ls":
+    case "$ ls":
         break // ignore, not relevant
-    case "dir":
+    case "dir ":
         let name = line.dropFirst(4)
         let directory = Directory(name: String("\(currentDirectory)/\(name)").replacingOccurrences(of: "//", with: "/"),
                                   directories: [],
@@ -46,13 +46,13 @@ output.forEach { line in
     }
 }
 
-var sumSize = 0
+var totalSize = 0
 var neededSize = 30000000 - (70000000 - (fileSystem.directories["/"]?.size ?? 0))
 var possibleDirectories: [Directory] = []
 
 fileSystem.directories.values.forEach { directory in
     if directory.size < 100000 {
-        sumSize += directory.size
+        totalSize += directory.size
     }
     
     if directory.size > neededSize {
@@ -62,7 +62,7 @@ fileSystem.directories.values.forEach { directory in
 
 // q1
 print("Sum of dirs below 10000:")
-print(sumSize)
+print(totalSize)
 
 // q2
 print("Size of smallest possible dir:")
