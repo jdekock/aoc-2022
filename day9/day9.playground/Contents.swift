@@ -44,7 +44,7 @@ moves.forEach { move, steps in
         if !touchPoints.contains([tailPosition.X, tailPosition.Y]) {
             touchPoints.append([tailPosition.X, tailPosition.Y])
         }
-        
+
         if !ropeTouchPoints.contains([rope[9].X, rope[9].Y]) {
             ropeTouchPoints.append([rope[9].X, rope[9].Y])
         }
